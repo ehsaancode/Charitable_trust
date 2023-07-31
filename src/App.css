@@ -1,0 +1,6 @@
+.transparent-div {
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Replace the RGB values as per your requirement */
+    /* The last value (0.5) represents the alpha channel for transparency (0.0 to 1.0) */
+    /* The lower the alpha value, the more transparent the div will be */
+}
