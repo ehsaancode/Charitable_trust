@@ -6,13 +6,17 @@ const imageStyle = {
   width: "100%",
   display: "flex",
 };
-const flexContainerStyle = {
-  display: "flex", // Set the display property to "flex"
+
+const containerStyle = {
+  background: "linear-gradient(135deg, #28a745, #ffc107)",
+  padding: "10px",
+  paddingTop: "31px",
+  color: "#fff",
 };
 
 const Projects = () => {
   return (
-    <div className="p-4">
+    <div style={containerStyle}>
       <div className="card">
         <div className="card-body">
           <h4 className="border-0 shadow-lg rounded card-title p-2 bg-light text-secondary">
@@ -26,16 +30,13 @@ const Projects = () => {
             homoeopathic physicians and they receive free treatment and
             medicines.
           </p>
-          <p className="card-text"></p>
         </div>
         <div>
-          {" "}
-          {/* Flex container */}
           <img
-            className="card-img-bottom p-4"
+            className="card-img-bottom p-4 img-fluid" // Add "img-fluid" class for responsiveness
             src="./images/Secondimg.jpg"
             alt="Card image cap"
-            style={{ ...imageStyle, marginRight: "10px" }} // Add some margin between the images
+            style={{ ...imageStyle, maxWidth: "100%", height: "auto" }} // Set max-width to 100% and height to auto
           />
         </div>
         {/* second part */}
@@ -46,14 +47,14 @@ const Projects = () => {
                 <img
                   src="./images/Secondimg.jpg"
                   alt="First Image"
-                  className="img-fluid"
+                  className="img-fluid" // Add "img-fluid" class for responsiveness
                 />
               </div>
               <div className="col-sm-6">
                 <img
                   src="./images/Secondimg.jpg"
                   alt="Second Image"
-                  className="img-fluid"
+                  className="img-fluid" // Add "img-fluid" class for responsiveness
                 />
               </div>
             </div>

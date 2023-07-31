@@ -5,13 +5,14 @@ import OrganizationInfo from "./OrganizationInfo";
 
 const containerStyle = {
   background: "linear-gradient(135deg, #28a745, #ffc107)",
-  padding: "20px",
+  padding: "10px",
+  paddingTop: "31px",
   color: "#fff",
 };
 const Contact = () => {
   return (
     <>
-      <div className="bg-light text-dark py-5" style={containerStyle}>
+      <div className="bg-light text-dark" style={containerStyle}>
         <Container>
           <h1 className="text-center mb-4">Contact Us</h1>
           <OrganizationInfo />

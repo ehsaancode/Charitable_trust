@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Objectives.css";
+
 const containerStyle = {
   background: "linear-gradient(135deg, #28a745, #ffc107)",
-  padding: "20px",
+  padding: "10px 10px 10px",
   color: "#fff",
 };
 
-const Food = () => (
+const Food = ({ imageWidth }) => (
   <div>
     <div>
       <p>
@@ -24,14 +25,14 @@ const Food = () => (
       <img
         src="./images/Hungry.jpg"
         alt="Food Objective"
-        style={{ width: "800px", height: "400px" }}
+        style={{ width: `${imageWidth}px`, height: "auto", maxHeight: "400px" }}
         className="img-fluid"
       />
     </div>
   </div>
 );
 
-const Health = () => (
+const Health = ({ imageWidth }) => (
   <div>
     <div>
       <p>
@@ -50,14 +51,14 @@ const Health = () => (
       <img
         src="./images/health.jpg"
         alt="Health Objective"
-        style={{ width: "800px", height: "400px" }}
+        style={{ width: `${imageWidth}px`, height: "auto", maxHeight: "400px" }}
         className="img-fluid"
       />
     </div>
   </div>
 );
 
-const Education = () => (
+const Education = ({ imageWidth }) => (
   <div>
     <div>
       <p>
@@ -76,7 +77,7 @@ const Education = () => (
       <img
         src="./images/education.jpg"
         alt="Education Objective"
-        style={{ width: "800px", height: "400px" }}
+        style={{ width: `${imageWidth}px`, height: "auto", maxHeight: "400px" }}
         className="img-fluid"
       />
     </div>
@@ -85,6 +86,29 @@ const Education = () => (
 
 const Objectives = () => {
   const [selectedTab, setSelectedTab] = useState("food");
+  const [imageWidth, setImageWidth] = useState(800);
+
+  useEffect(() => {
+    // Update image width on window resize
+    function updateImageWidth() {
+      const width = window.innerWidth;
+
+      // Set the desired image width based on the screen size
+      // Adjust these values as needed to fit your design preferences
+      setImageWidth(width < 768 ? width - 40 : 800);
+    }
+
+    // Call the function to set the initial image width
+    updateImageWidth();
+
+    // Attach event listener for window resize
+    window.addEventListener("resize", updateImageWidth);
+
+    // Clean up the event listener when component unmounts
+    return () => {
+      window.removeEventListener("resize", updateImageWidth);
+    };
+  }, []);
 
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
@@ -93,11 +117,11 @@ const Objectives = () => {
   const renderContent = () => {
     switch (selectedTab) {
       case "food":
-        return <Food />;
+        return <Food imageWidth={imageWidth} />;
       case "health":
-        return <Health />;
+        return <Health imageWidth={imageWidth} />;
       case "education":
-        return <Education />;
+        return <Education imageWidth={imageWidth} />;
       default:
         return null;
     }

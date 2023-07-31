@@ -13,7 +13,7 @@ import BankDetails from './pages/BankDetails';
 
 const containerStyle = {
   background: "linear-gradient(135deg, #28a745, #ffc107)",
-  padding: "21px",
+  padding: "15px",
   color: "#fff",
 };
 function App() {

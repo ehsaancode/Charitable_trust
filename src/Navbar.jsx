@@ -2,17 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  // const containerStyle = {
-  //   background: "linear-gradient(135deg, #28a745, #ffc107)",
-  //   padding: "20px",
-  //   color: "#fff",
-  // };
   return (
     <div>
       <div class="container-fluid"></div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg rounded p-2">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg rounded-top p-1.5">
         <div className="container-fluid">
-          <a class="navbar-brand" href="/">
+          <Link class="navbar-brand" to="/">
             <img
               src="./images/logo.jpg"
               alt="Logo"
@@ -20,10 +15,10 @@ const Navbar = () => {
               height="40"
               class="d-inline-block align-text-top"
             />
-          </a>
-          <a className="navbar-brand" href="/">
+          </Link>
+          <Link className="navbar-brand" to="/">
             NIMCT
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"

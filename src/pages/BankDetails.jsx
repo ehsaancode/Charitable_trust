@@ -3,8 +3,16 @@ import { Card, Container } from "react-bootstrap";
 
 const containerStyle = {
   background: "linear-gradient(135deg, #28a745, #ffc107)",
-  padding: "20px",
+  padding: "10px",
+  paddingTop: "31px",
   color: "#fff",
+};
+
+const logoStyle = {
+  width: "auto",
+  height: "20px",
+  marginRight: "5px",
+  marginTop: "20px",
 };
 
 const BankDetails = () => {
@@ -22,7 +30,7 @@ const BankDetails = () => {
             </h3>
           </div>
           <div className="mt-5 text-center">
-            <Card className="border-0 shadow-sm rounded p-4 mt-4">
+            <Card className="border-0 shadow-sm rounded p-3 mt-4">
               <h2 className="bg-info text-light p-2 rounded">Bank Details</h2>
               <Card.Body>
                 <Card.Text>
@@ -42,7 +50,7 @@ const BankDetails = () => {
           </div>
 
           <div className="mt-5 text-center">
-            <Card className="border-0 shadow-sm rounded p-4 mt-4">
+            <Card className="border-0 shadow-sm rounded p-3 mt-4">
               <h2 className="border-0 shadow-sm rounded bg-info p-2 text-light">
                 UPI Details
               </h2>
@@ -56,6 +64,32 @@ const BankDetails = () => {
                 <Card.Text>
                   <strong>Bank Name:</strong> XXXXXX
                 </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+
+          {/* QR Details */}
+          <div className="mt-5 text-center">
+            <Card className="border-0 shadow-sm rounded p-3 mt-4">
+              <h2 className="border-0 shadow-sm rounded bg-info p-2 text-light">
+                Scan QR Code to Donate using UPI
+              </h2>
+              <Card.Body>
+                <Card.Text>
+                  <img
+                    src="./images/QRCode.png"
+                    alt="qr code"
+                    className="img-fluid"
+                    style={{ maxWidth: "200px" }}
+                  />
+                </Card.Text>
+                <div className="d-flex justify-content-center">
+                  <span>
+                    <img src="images/Paytm.png" alt="" style={logoStyle} />
+                    <img src="images/Phonepe.png" alt="" style={logoStyle} />
+                    <img src="images/Gpay.png" alt="" style={logoStyle} />
+                  </span>
+                </div>
               </Card.Body>
             </Card>
           </div>

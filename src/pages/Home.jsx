@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Carousel from "react-bootstrap/Carousel";
 import Objectives from "./Objectives";
@@ -11,18 +11,44 @@ import Quote from "./Quote";
 
 const containerStyle = {
   background: "linear-gradient(135deg, #28a745, #ffc107)",
-  padding: "21px",
+  padding: "0px 2px",
   color: "#fff",
 };
+
 const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [carouselHeight, setCarouselHeight] = useState(600); // Set initial carousel height
+
+  useEffect(() => {
+    // Update carousel height on window resize
+    function updateCarouselHeight() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      const newCarouselHeight = width < height ? height * 0.6 : 600;
+      setCarouselHeight(newCarouselHeight);
+    }
+
+    // Call the function to set the initial carousel height
+    updateCarouselHeight();
+
+    // Attach event listener for window resize
+    window.addEventListener("resize", updateCarouselHeight);
+
+    // Clean up the event listener when component unmounts
+    return () => {
+      window.removeEventListener("resize", updateCarouselHeight);
+    };
+  }, []);
 
   const handleSelect = (selectedIndex) => {
     setActiveIndex(selectedIndex);
   };
+
   const imageStyle = {
-    height: "600px", // Set the desired fixed height here
+    height: `${carouselHeight}px`,
     width: "100%",
+    objectFit: "cover",
   };
 
   return (
